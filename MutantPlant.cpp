@@ -3,3 +3,11 @@
 //
 
 #include "MutantPlant.h"
+#include "Game.h"
+#include "Room.h"
+#include "Gardener.h"
+
+void MutantPlant::interact(Game* game) {
+
+}
+
