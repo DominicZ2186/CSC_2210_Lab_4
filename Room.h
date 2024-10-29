@@ -5,10 +5,30 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-
+#include "Hazard.h"
+#include "Weapon.h"
+#include "MutantPlant.h"
 
 class Room {
-
+private:
+    Room* north;
+    Room* south;
+    Room* east;
+    Room* west;
+    Hazard* hazard;
+    Weapon* weapon;
+    MutantPlant* plant;
+    bool hasPlayer;
+    int roomID;
+public:
+    Room(int roomID);
+    void connect(Direction direction, Room* room);
+    Room getExit(Direction direction);
+    void setHazard();
+    void setWeapon();
+    void setPlant();
+    void getClues();
+    char getDisplayChar();
 };
 
 
