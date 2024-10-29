@@ -3,3 +3,11 @@
 //
 
 #include "GardenShears.h"
+#include "Game.h"
+#include "Room.h"
+#include "MutantPlant.h"
+#include "Gardener.h"
+
+bool GardenShears::use(Direction dir, Game* game) {
+
+}

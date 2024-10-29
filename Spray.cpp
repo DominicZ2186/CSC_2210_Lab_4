@@ -3,3 +3,11 @@
 //
 
 #include "Spray.h"
+#include "Game.h"
+#include "Room.h"
+#include "MutantPlant.h"
+#include "Gardener.h"
+
+bool Spray::use(Direction dir, Game* game) {
+
+}
