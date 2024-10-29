@@ -8,4 +8,5 @@ add_executable(untitled main.cpp
         Map.h
         Game.h
         Game.cpp
-        Map.cpp)
+        Map.cpp
+        AcidPool.h)
