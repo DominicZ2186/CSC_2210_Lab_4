@@ -5,10 +5,19 @@
 #ifndef GARDENER_H
 #define GARDENER_H
 
-
+#include "Room.h"
+#include "Weapon.h"
 
 class Gardener {
-
+private:
+    Room* currentRoom;
+    vector<Weapon*> inventory;
+    char symbol;
+public:
+    Gardener(Room* startRoom);
+    void move(Direction direction);
+    void useWeapon(size_t weaponIndex, Direction direction);
+    void pickUpWeapon(Weapon*);
 };
 
 

@@ -6,7 +6,25 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(untitled main.cpp
         Direction.h
         Map.h
+        Map.cpp
         Game.h
         Game.cpp
-        Map.cpp
-        AcidPool.h)
+        AcidPool.h
+        AcidPool.cpp
+        Gardener.h
+        Gardener.cpp
+        GardenShears.h
+        GardenShears.cpp
+        Hazard.h
+        Hazard.cpp
+        MutantPlant.h
+        MutantPlant.cpp
+        Room.h
+        Room.cpp
+        Spores.h
+        Spores.cpp
+        Spray.h
+        Spray.cpp
+        Weapon.h
+        Weapon.cpp
+)

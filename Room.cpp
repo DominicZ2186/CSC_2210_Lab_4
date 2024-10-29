@@ -3,3 +3,39 @@
 //
 
 #include "Room.h"
+
+Room::Room(int roomID){
+  this->roomID = roomID;
+}
+
+void Room::connect(Direction direction, Room* room){
+
+}
+
+Room Room::getExit(Direction direction) {
+
+}
+
+void Room::setHazard() {
+
+}
+
+void Room::setWeapon() {
+
+}
+
+void Room::setPlant() {
+
+}
+
+void Room::getClues() {
+
+}
+
+char Room::getDisplayChar() {
+
+}
+
+
+
+
