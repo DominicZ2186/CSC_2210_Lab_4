@@ -4,10 +4,17 @@
 
 #ifndef ACIDPOOL_H
 #define ACIDPOOL_H
+#include "Hazard.h";
+#include "Game.h";
 
 
 
-class AcidPool {
+
+class AcidPool: public Hazard {
+public:
+public:
+  AcidPool(): Hazard('@', "You smell something acidic") {}
+  void interact(Game* game) override;
 
 };
 

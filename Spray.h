@@ -4,10 +4,17 @@
 
 #ifndef SPRAY_H
 #define SPRAY_H
+#include "Weapon.h"
 
 
 
-class Spray {
+class Spray: public Weapon {
+ private:
+  int charges;
+public:
+  Spray(int initialCharges = 1): charges(initialCharges) {}
+  bool use(Direction dir, Game* game) override;
+  int getCharges() const {return charges;}
 
 };
 

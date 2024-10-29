@@ -4,11 +4,14 @@
 
 #ifndef SPORES_H
 #define SPORES_H
+#include "Hazard.h";
 
 
 
-class Spores {
-
+class Spores: public Hazard {
+public:
+  Spores(): Hazard('!', "Sparkling spores drift in the air") {}
+  void interact(Game* game) override;
 };
 
 
