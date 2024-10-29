@@ -7,9 +7,11 @@
 
 
 
-class GardenShears {
-
-};
+class GardenShears: public Weapon {
+ public:
+    GardenShears() {}
+    bool use(Direction dir, Game* game) override;
+ };
 
 
 
