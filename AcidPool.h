@@ -4,8 +4,8 @@
 
 #ifndef ACIDPOOL_H
 #define ACIDPOOL_H
-#include "Hazard.h";
-#include "Game.h";
+#include "Hazard.h"
+#include "Game.h"
 
 
 

@@ -20,7 +20,7 @@ public:
   void placeHazards(int x, int y);
   void placeWeapons(int x, int y);
   void placeMutant(int x, int y);
-  void getRandomEmptyRoom();
+  Room* getRandomEmptyRoom();
   void display();
 };
 

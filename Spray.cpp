@@ -9,5 +9,5 @@
 #include "Gardener.h"
 
 bool Spray::use(Direction dir, Game* game) {
-
+    return false;
 }

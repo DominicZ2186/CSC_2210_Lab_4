@@ -25,8 +25,8 @@ void Map::placeMutant(int x, int y) {
 
 }
 
-void Map::getRandomEmptyRoom() {
-
+Room* Map::getRandomEmptyRoom() {
+    return new Room(1);
 }
 
 void Map::display() {

@@ -4,8 +4,8 @@
 
 #include "Gardener.h"
 
-Gardener::Gardener(Room *startRoom) {
-
+Gardener::Gardener(Room* startRoom) {
+    this->currentRoom = startRoom;
 }
 
 void Gardener::move(Direction direction) {

@@ -3,3 +3,7 @@
 //
 
 #include "Hazard.h"
+
+void Hazard::interact(Game *game) {
+
+}
