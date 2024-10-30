@@ -7,6 +7,9 @@
 
 #include "Room.h"
 #include "Weapon.h"
+#include <vector>
+
+class Room;
 
 class Gardener {
 private:

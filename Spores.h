@@ -4,7 +4,7 @@
 
 #ifndef SPORES_H
 #define SPORES_H
-#include "Hazard.h";
+#include "Hazard.h"
 
 
 

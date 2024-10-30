@@ -9,6 +9,10 @@
 #include "Weapon.h"
 #include "MutantPlant.h"
 
+class Hazard;
+class Weapon;
+class MutantPlant;
+
 class Room {
 private:
     Room* north;
