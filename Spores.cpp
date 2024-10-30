@@ -6,8 +6,8 @@
 #include "Game.h"
 #include "Room.h"
 #include "Gardener.h"
-#include <cstdlib>
-#include <stdexcept>
+
+
 
 void Spores::interact(Game* game) {
 

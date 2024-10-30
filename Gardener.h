@@ -11,7 +11,7 @@
 class Gardener {
 private:
     Room* currentRoom;
-    vector<Weapon*> inventory;
+    std::vector<Weapon*> inventory;
     char symbol;
 public:
     Gardener(Room* startRoom);

@@ -41,9 +41,9 @@ void Map::getRandomEmptyRoom() {
 
 void Map::display() {
     string symbols[] = {".", ">", "?","@", "+", "!"};
-    int randomNum = (rand() % 6) + 1;
     for (int i = 0; i < width; ++i) {
-        for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < height; ++j) {
+            int randomNum = (rand() % 6) + 1;
             if(randomNum == 1) {
                 cout << symbols[0] << " ";
             }

@@ -5,7 +5,7 @@
 #ifndef HAZARD_H
 #define HAZARD_H
 #include <iostream>
-#include "Game.h";
+#include "Game.h"
 
 
 

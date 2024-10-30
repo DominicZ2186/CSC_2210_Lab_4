@@ -8,11 +8,11 @@
 #include "Room.h"
 #include <vector>
 
-using namespace std;
+
 
 class Map {
 private:
-  vector<Room*> rooms;
+  std::vector<Room*> rooms;
   int width, height;
   Room* getRoomAt(int x, int y) const;
 public:
