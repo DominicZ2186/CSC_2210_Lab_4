@@ -14,8 +14,9 @@ class Map {
 private:
   vector<Room*> rooms;
   int width, height;
+  Room* getRoomAt(int x, int y) const;
 public:
-  Map(int width, int height);
+  Map(int width = 6, int height= 6);
   void generateRooms();
   void placeHazards(int x, int y);
   void placeWeapons(int x, int y);
