@@ -5,7 +5,6 @@
 #ifndef GARDENSHEARS_H
 #define GARDENSHEARS_H
 #include "Direction.h"
-#include "Game.h"
 #include "Weapon.h"
 
 

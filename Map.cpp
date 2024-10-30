@@ -7,6 +7,7 @@
 #include "AcidPool.h"
 #include "Spores.h"
 #include "Spray.h"
+using namespace std;
 
 Map::Map(int width, int height) {
     this -> width = width;
@@ -41,9 +42,9 @@ Room* Map::getRandomEmptyRoom() {
 
 void Map::display() {
     string symbols[] = {".", ">", "?","@", "+", "!"};
-    int randomNum = (rand() % 6) + 1;
-    for (int i = 0; i < width; ++i) {
-        for (int i = 0; i < height; ++i) {
+    for (int i = 0; i < 6; ++i) {
+        for (int j = 0; j < 6; ++j) {
+            int randomNum = (rand() % 6) + 1;
             if(randomNum == 1) {
                 cout << symbols[0] << " ";
             }

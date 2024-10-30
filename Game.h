@@ -8,15 +8,17 @@
 #include "Map.h"
 #include "Gardener.h"
 #include <string>
+#include <iostream>
 
-using namespace std;
+class Gardener;
+class Map;
 
 class Game {
 private:
   Map* map;
   Gardener* gardener;
   bool gameOver;
-  string gameOverMessage;
+  std::string gameOverMessage;
   bool debugMode;
 public:
   Game(bool debugMode);
@@ -25,7 +27,7 @@ public:
   void processCommand(char command);
   void displayStatus();
   void displayHelp();
-  void endGame(string message);
+  void endGame(std::string message);
   void teleportGardener();
 };
 

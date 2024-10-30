@@ -8,12 +8,10 @@ using namespace std;
 Game::Game(bool debugMode){
   this->debugMode = debugMode;
   this->gameOver = false;
-  this->map = nullptr;
-  this->gardener = nullptr;
 }
 
 void Game::initialize(){
-  this->map = new Map(6, 6);
+  this->map = new Map();
   this->gardener = new Gardener(map->getRandomEmptyRoom());
 }
 
@@ -55,7 +53,7 @@ void Game::displayHelp(){
             "however use it wisely as it has only a certain amount of uses unlike "
             "the garden shears which has unlimited uses" << endl <<
               "3) With each movement you are given clues that tell you "
-              "about what lies in the rooms around you";
+              "about what lies in the rooms around you" << endl;
 }
 
 void Game::endGame(string message){

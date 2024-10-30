@@ -10,5 +10,5 @@
 #include <stdexcept>
 
 void Spores::interact(Game* game) {
-
+    game->teleportGardener();
 }

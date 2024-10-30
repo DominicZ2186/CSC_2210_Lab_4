@@ -6,6 +6,13 @@
 
 Room::Room(int roomID){
   this->roomID = roomID;
+  this->north = nullptr;
+  this->south = nullptr;
+  this->east = nullptr;
+  this->west = nullptr;
+  this->hazard = nullptr;
+  this->weapon = nullptr;
+
 }
 
 void Room::connect(Direction direction, Room* room){

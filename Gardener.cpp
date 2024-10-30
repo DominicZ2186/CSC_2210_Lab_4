@@ -5,7 +5,8 @@
 #include "Gardener.h"
 
 Gardener::Gardener(Room* startRoom) {
-    this->currentRoom = startRoom;
+    this->currentRoom = nullptr;
+    this->inventory = {nullptr, nullptr};
 }
 
 void Gardener::move(Direction direction) {

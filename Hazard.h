@@ -4,15 +4,16 @@
 
 #ifndef HAZARD_H
 #define HAZARD_H
-#include <iostream>
+
 #include "Game.h"
+#include <string>
 
-
+class Game;
 
 class Hazard {
 protected:
   char symbol;
-  std:: string clue;
+  std::string clue;
 public:
   Hazard(char sym, const std::string& c): symbol(sym), clue(c) {}
 

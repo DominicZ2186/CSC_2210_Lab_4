@@ -6,7 +6,7 @@
 #define MUTANTPLANT_H
 #include "Game.h"
 #include "Weapon.h"
-#include <iostream>
+#include <string>
 
 class MutantPlant {
 private:
