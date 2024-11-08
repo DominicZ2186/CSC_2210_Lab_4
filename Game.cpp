@@ -37,6 +37,7 @@ void Game::processCommand(char command){
     cout << "Invalid Action" << endl;
   }
 
+
 }
 
 void Game::displayStatus(){
