@@ -4,6 +4,11 @@
 
 #include "Room.h"
 
+#include "AcidPool.h"
+#include "GardenShears.h"
+#include "Spores.h"
+#include "Spray.h"
+
 Room::Room(int roomID){
   this->roomID = roomID;
   this->north = nullptr;
@@ -16,7 +21,15 @@ Room::Room(int roomID){
 }
 
 void Room::connect(Direction direction, Room* room){
-
+  if (direction == Direction::NORTH) {
+    this->north = room;
+  } else if (direction == Direction::SOUTH) {
+    this->south = room;
+  } else if (direction == Direction::EAST) {
+    this->east = room;
+  } else if (direction == Direction::WEST) {
+    this->west = room;
+  }
 }
 
 Room Room::getExit(Direction direction) {
@@ -24,11 +37,21 @@ Room Room::getExit(Direction direction) {
 }
 
 void Room::setHazard() {
-
+  int randNum = (rand() % 2) + 1;
+  if (randNum == 1) {
+    this-> hazard = new Spores();
+  } else {
+    this-> hazard = new AcidPool();
+  }
 }
 
-void Room::setWeapon() {
-
+void Room::setWeapon(bool hasShears) {
+  int randNum = (rand() % 2) + 1;
+  if (randNum == 1 && !hasShears) {
+    this-> weapon = new GardenShears();
+  } else {
+    this-> weapon = new Spray();
+  }
 }
 
 void Room::setPlant() {

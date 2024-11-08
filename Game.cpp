@@ -8,10 +8,11 @@ using namespace std;
 Game::Game(bool debugMode){
   this->debugMode = debugMode;
   this->gameOver = false;
+  initialize();
 }
 
 void Game::initialize(){
-  this->map = new Map();
+  this->map = new Map(6, 6);
   this->gardener = new Gardener(map->getRandomEmptyRoom());
 }
 

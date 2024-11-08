@@ -12,28 +12,46 @@ using namespace std;
 Map::Map(int width, int height) {
     this -> width = width;
     this -> height = height;
+    this -> mutantPlants = 0;
+    this ->hazards = 0;
+    this -> weapons = 0;
     rooms.resize(width * height);
     for(auto& room : rooms) {
         room = nullptr;
     }
+    generateRooms();
 }
 
 void Map::generateRooms() {
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+             int randNum = (rand() % (width * height)) + 1;
+            if (randNum <= 12 && hazards < MAX_HAZARDS) {
+                placeHazards(x, y);
+            } else if(randNum <= 14 && weapons < MAX_WEAPONS) {
+                placeWeapons(x, y);
+            } else if(randNum == 15 && mutantPlants == 0) {
+                placeMutant(x, y);
+            } else {
 
-
-
+            }
+        }
+    }
 }
 
 void Map::placeHazards(int x, int y) {
-
+    rooms[x][y].setHazard();
+    hazards++;
 }
 
 void Map::placeWeapons(int x, int y) {
-
+    rooms[x][y].setWeapon(weapons == 0);
+    weapons++;
 }
 
 void Map::placeMutant(int x, int y) {
-
+    rooms[x][y].setPlant();
+    mutantPlants++;
 }
 
 Room* Map::getRandomEmptyRoom() {
@@ -42,8 +60,8 @@ Room* Map::getRandomEmptyRoom() {
 
 void Map::display() {
     string symbols[] = {".", ">", "?","@", "+", "!"};
-    for (int i = 0; i < 6; ++i) {
-        for (int j = 0; j < 6; ++j) {
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
             int randomNum = (rand() % 6) + 1;
             if(randomNum == 1) {
                 cout << symbols[0] << " ";

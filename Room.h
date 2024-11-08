@@ -29,7 +29,7 @@ public:
     void connect(Direction direction, Room* room);
     Room getExit(Direction direction);
     void setHazard();
-    void setWeapon();
+    void setWeapon(bool hasShears);
     void setPlant();
     void getClues();
     char getDisplayChar();
