@@ -4,7 +4,7 @@ project(CSC_2210_Lab_4)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(untitled main.cpp
-        Direction.h
+        direction.h
         Map.h
         Map.cpp
         Game.h

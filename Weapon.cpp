@@ -7,3 +7,14 @@
 #include "Game.h"
 
 
+
+char Weapon::getSymbol() const {
+    return symbol;
+}
+bool Weapon::isPickedUp() const {
+    return isCollected;
+}
+void Weapon::pickUp() {
+    isCollected = true;
+}
+

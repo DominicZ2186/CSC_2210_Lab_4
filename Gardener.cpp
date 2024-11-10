@@ -66,7 +66,7 @@ void Gardener::useWeapon(size_t index, Direction dir, Game *game) {
 void Gardener::pickUpWeapon(Weapon *weapon) {
     if (weapon != nullptr) {
         weapon->pickUp();
-        std::cout << "Picked up a " << (dynamic_cast<Spray*>(weapon) ? "Spray" : "Garden Shears") << "!\n";
+        std::cout << "Picked up a " << (dynamic_cast<Spray*>(weapon) ? "spray" : "Garden Shears") << "!\n";
         if (dynamic_cast<Spray*>(weapon)) {
             sprayCharges++;
         } else {
