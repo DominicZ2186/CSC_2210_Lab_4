@@ -22,6 +22,9 @@ private:
   int weapons;
 public:
   Map(int width = 6, int height= 6);
+
+  ~Map();
+
   void generateRooms();
   void placeHazards(int x, int y);
   void placeWeapons(int x, int y);

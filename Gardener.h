@@ -19,11 +19,12 @@ private:
     int sprayCharges;
 public:
     Gardener(Room* startRoom);
-    void move(Direction direction);
+    void move(Direction direction, Game* game);
     void useWeapon(size_t weaponIndex, Direction direction, Game *game);
     void pickUpWeapon(Weapon*);
     void displayInventory();
     void setCurrentRoom(Room* room);
+    Room *getCurrentRoom() const;
 };
 
 

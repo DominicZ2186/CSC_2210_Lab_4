@@ -16,9 +16,14 @@ Gardener::Gardener(Room* startRoom) {
     this->sprayCharges = 2;
 }
 
-void Gardener::move(Direction direction) {
+void Gardener::move(Direction direction, Game* game) {
     //have the logic to move the gardener based on direction.
+    currentRoom->setPlayer();
     currentRoom = currentRoom->getExit(direction);
+    if (currentRoom->hasHazard()) {
+        currentRoom->getHazard()->interact(game);
+    }
+    currentRoom->setPlayer();
 }
 
 void Gardener::useWeapon(size_t index, Direction dir, Game *game) {
@@ -59,4 +64,8 @@ void Gardener::displayInventory() {
 
 void Gardener::setCurrentRoom(Room *room) {
     this->currentRoom = room;
+}
+
+Room* Gardener::getCurrentRoom() const{
+    return this->currentRoom;
 }
