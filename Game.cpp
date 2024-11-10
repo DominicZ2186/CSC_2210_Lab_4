@@ -63,8 +63,16 @@ void Game::processCommand(char command){
     int input;
     do {
       cin >> input;
-      if (input != 1 && input != 2) {
+      if (input != 1 && input != 2 ) {
         cout << "Invalid input, please enter the inventory index of the desired weapon to use" << endl;
+        gardener->displayInventory();
+        cin.clear();
+        cin.ignore();
+      }
+      if (gardener-> getWeaponAt(input) == nullptr) {
+        cout << "That inventory space is empty, maybe you could find something to fill it..." << endl;
+        input = 3;
+        cout << "Please enter the inventory index of the desired weapon to use" << endl;
         gardener->displayInventory();
       }
     } while (input != 1 && input != 2);

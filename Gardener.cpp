@@ -81,10 +81,10 @@ void Gardener::displayInventory() {
     for (int i = 0; i < inventory.size(); i++) {
         if (inventory[i] != nullptr) {
             if (dynamic_cast<Spray*>(inventory[i])) {
-                std::cout << "Sprays (uses left: " << sprayCharges << ")\n";
+                std::cout << "(" << i + 1 <<  ")Sprays (uses left: " << sprayCharges << ")\n";
             }
             if (dynamic_cast<GardenShears*>(inventory[i])) {
-                std::cout << "Garden Shears (unlimited uses)\n";
+                std::cout << "(" << i + 1 << ")Garden Shears (unlimited uses)\n";
             }
         }
     }
@@ -96,4 +96,11 @@ void Gardener::setCurrentRoom(Room *room) {
 
 Room* Gardener::getCurrentRoom() const{
     return this->currentRoom;
+}
+
+Weapon* Gardener::getWeaponAt(int index) {
+    if (index != 1 && index != 2) {
+        return nullptr;
+    }
+    return inventory[index - 1];
 }

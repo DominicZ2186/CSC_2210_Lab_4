@@ -63,6 +63,8 @@ public:
      */
     void setCurrentRoom(Room* room);
 
+    Weapon *getWeaponAt(int index);
+
     /**
      * @brief Gets the gardener's current room.
      * @return Pointer to the current room of the gardener.
