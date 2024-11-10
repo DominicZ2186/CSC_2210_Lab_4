@@ -10,5 +10,7 @@
 
 
 void Spores::interact(Game* game) {
+    // Teleporting logic
+    std::cout << "The spores transport you to a random room!" << std::endl;
     game->teleportGardener();
 }

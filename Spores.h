@@ -10,10 +10,9 @@
 
 class Spores: public Hazard {
 public:
-  Spores(): Hazard('!', "Sparkling spores drift in the air") {}
+  Spores(): Hazard('!', "You notice Sparkling spores drift in the air") {}
   void interact(Game* game) override;
+
 };
-
-
 
 #endif //SPORES_H

@@ -7,7 +7,3 @@
 #include "Game.h"
 
 
-
-Weapon::~Weapon() {
-
-}
