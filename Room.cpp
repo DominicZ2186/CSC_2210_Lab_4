@@ -10,14 +10,15 @@
 #include "Spray.h"
 
 Room::Room(int roomID){
-  this->roomID = roomID;
   this->north = nullptr;
   this->south = nullptr;
   this->east = nullptr;
   this->west = nullptr;
+  this->roomID = roomID;
   this->hazard = nullptr;
   this->weapon = nullptr;
-
+  this->plant = nullptr;
+  this->hasPlayer = false;
 }
 
 void Room::connect(Direction direction, Room* room){
@@ -32,40 +33,84 @@ void Room::connect(Direction direction, Room* room){
   }
 }
 
-Room Room::getExit(Direction direction) {
-  return Room(roomID);
+Room* Room::getExit(Direction direction) {
+  if (direction == Direction::NORTH) {
+    return north;
+  } if (direction == Direction::SOUTH) {
+    return south;
+  } if (direction == Direction::EAST) {
+    return east;
+  }
+  return west;
 }
 
 void Room::setHazard() {
+  //TODO: fix seg fault caused by initialization of Hazards, Weapons, and MutantPlant
   int randNum = (rand() % 2) + 1;
   if (randNum == 1) {
-    this-> hazard = new Spores();
+    //this-> hazard = new Spores();
   } else {
-    this-> hazard = new AcidPool();
+    //this-> hazard = new AcidPool();
   }
 }
 
 void Room::setWeapon(bool hasShears) {
   int randNum = (rand() % 2) + 1;
   if (randNum == 1 && !hasShears) {
-    this-> weapon = new GardenShears();
+    //this-> weapon = new GardenShears();
   } else {
-    this-> weapon = new Spray();
+    //this-> weapon = new Spray();
   }
 }
 
 void Room::setPlant() {
-
+  //this-> plant = new MutantPlant();
 }
 
 void Room::getClues() {
-
+  //check north
+  if (north != nullptr) {
+    if (north->hazard != nullptr) {
+      std::cout << north->hazard->getClue();
+    } else if (north->plant != nullptr) {
+      std::cout << north->plant->getClue();
+    }
+  }
+  //check south
+  if (south != nullptr) {
+    if (south->hazard != nullptr) {
+      std::cout << south->hazard->getClue();
+    } else if (south->plant != nullptr) {
+      std::cout << south->plant->getClue();
+    }
+  }
+  //check east
+  if (east != nullptr) {
+    if (east->hazard != nullptr) {
+      std::cout << east->hazard->getClue();
+    } else if (east->plant != nullptr) {
+      std::cout << east->plant->getClue();
+    }
+  }
+  //check west
+  if (west != nullptr) {
+    if (west->hazard != nullptr) {
+      std::cout << west->hazard->getClue();
+    } else if (west->plant != nullptr) {
+      std::cout << west->plant->getClue();
+    }
+  }
 }
 
 char Room::getDisplayChar() {
-  return 'n';
+  if (hazard) {
+    return hazard->getSymbol();
+  }
+  if (plant) {
+    return plant->getSymbol();
+  }
+  if (weapon) {
+    return weapon->getSymbol();
+  }
+  return '.';
 }
-
-
-
-

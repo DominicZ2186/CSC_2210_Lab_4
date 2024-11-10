@@ -27,7 +27,7 @@ private:
 public:
     Room(int roomID);
     void connect(Direction direction, Room* room);
-    Room getExit(Direction direction);
+    Room* getExit(Direction direction);
     void setHazard();
     void setWeapon(bool hasShears);
     void setPlant();

@@ -3,6 +3,7 @@
 //
 
 #include "Game.h"
+#include <iostream>
 using namespace std;
 
 Game::Game(bool debugMode){
@@ -18,8 +19,8 @@ void Game::initialize(){
 
 void Game::play(){
   while (gameOver == false) {
-    //m, q, and h
-    cout << "Action: (M)ap, (H)elp, (Q)uit: " << endl;
+    //directions (n, s, e, w), w, m, q, and h
+    cout << "Action: (M)ap, (N)orth, (S)outh, (E)ast, (W)est, (U)se Weapon, (H)elp, (Q)uit: " << endl;
     char action;
     cin >> action;
     processCommand(tolower(action));
@@ -33,20 +34,57 @@ void Game::processCommand(char command){
     displayHelp();
   } else if (command == 'q') {
     endGame("Quitting Game");
-  } else {
+  } else if(command == 'n') {
+    gardener->move(Direction::NORTH);
+  } else if(command == 's') {
+    gardener->move(Direction::SOUTH);
+  } else if(command == 'e') {
+    gardener->move(Direction::EAST);
+  } else if(command == 'w') {
+    gardener->move(Direction::WEST);
+  } else if(command == 'u'){
+    cout << "which weapon would you like to use?" << endl;
+    //gardener->displayInventory();
+    char input;
+    cin >> input;
+    while (input != '1' || input != '2') {
+      cout << "Invalid input, please enter the inventory index of your desired item" << endl;
+      //gardener->displayInventory();
+      cin >> input;
+    }
+    int weaponIndex = input;
+    cout << "Item chosen, what direction would you like to use this item in? "
+            "((N)orth, (S)outh, (E)ast, (W)est)" << endl;
+    cin >> input;
+    while (tolower(input) != 'n' || tolower(input) != 's'
+      || tolower(input) != 'e' || tolower(input) != 'w') {
+      cout << "Invalid input, please enter the direction you would like to use your item in "
+              "((N)orth, (S)outh, (E)ast, (W)est)" << endl;
+      cin >> input;
+    }
+    if (input == 'n') {
+      gardener->useWeapon(weaponIndex, Direction::NORTH);
+    } else if (input == 's') {
+      gardener->useWeapon(weaponIndex, Direction::SOUTH);
+    } else if (input == 'e') {
+      gardener->useWeapon(weaponIndex, Direction::EAST);
+    } else {
+      gardener->useWeapon(weaponIndex, Direction::WEST);
+    }
+  }else {
     cout << "Invalid Action" << endl;
   }
-
 
 }
 
 void Game::displayStatus(){
-
+  //TODO: need a method to get gardener's current room and then call getClues
+  //gardener-> getCurrentRoom() -> getClues();
 }
 
 void Game::displayHelp(){
   cout << "Description:" << endl << "Equipped with potent spray bottle of herbicides, "
-          "venture deep into the garden to eliminate the hiding mutant plant." << endl <<
+          "venture deep into the garden to exterminate the hiding mutant plant." << endl <<
           "Use your keen senses to find useful items like the garden shears "
           "and avoid fatal hazards such as acid pools and spores" << endl;
   cout << endl << "Gameplay:" << endl << "1) Use the N, S, E, and W keys to move around the map in the "
@@ -64,6 +102,8 @@ void Game::endGame(string message){
 }
 
 void Game::teleportGardener(){
-
+  Room *room = map->getRandomEmptyRoom();
+  //TODO: need a method to set gardener's current room to the new room
+  //gardener-> setCurrentRoom(room);
 }
 
