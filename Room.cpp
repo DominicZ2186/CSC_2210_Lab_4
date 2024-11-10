@@ -59,7 +59,7 @@ void Room::setWeapon(bool hasShears) {
   if (randNum == 1 && !hasShears) {
     //this-> weapon = new GardenShears();
   } else {
-    //this-> weapon = new Spray();
+    //this-> weapon = new Spray(1);
   }
 }
 

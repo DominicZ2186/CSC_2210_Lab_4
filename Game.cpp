@@ -45,28 +45,29 @@ void Game::processCommand(char command){
   } else if(command == 'u'){
     cout << "which weapon would you like to use?" << endl;
     //gardener->displayInventory();
-    char input;
-    cin >> input;
-    while (input != '1' || input != '2') {
-      cout << "Invalid input, please enter the inventory index of your desired item" << endl;
-      //gardener->displayInventory();
+    int input;
+    do {
       cin >> input;
-    }
+      if (input != 1 && input != 2) {
+        cout << "Invalid input, please enter the inventory index of the desired weapon to use" << endl;;
+      }
+    } while (input != 1 && input != 2);
     int weaponIndex = input;
     cout << "Item chosen, what direction would you like to use this item in? "
             "((N)orth, (S)outh, (E)ast, (W)est)" << endl;
-    cin >> input;
-    while (tolower(input) != 'n' || tolower(input) != 's'
-      || tolower(input) != 'e' || tolower(input) != 'w') {
-      cout << "Invalid input, please enter the direction you would like to use your item in "
-              "((N)orth, (S)outh, (E)ast, (W)est)" << endl;
-      cin >> input;
-    }
-    if (input == 'n') {
+    char direction;
+    do {
+      cin >> direction;
+      direction = tolower(direction);
+      if (direction != 'n' && direction != 's' && direction != 'e' && direction != 'w') {
+        cout << "Invalid input, please enter a valid direction ((N)orth, (S)outh, (E)ast, (W)est)" << endl;
+      }
+    } while(direction != 'n' && direction != 's' && direction != 'e' && direction != 'w');
+    if (direction == 'n') {
       gardener->useWeapon(weaponIndex, Direction::NORTH);
-    } else if (input == 's') {
+    } else if (direction == 's') {
       gardener->useWeapon(weaponIndex, Direction::SOUTH);
-    } else if (input == 'e') {
+    } else if (direction == 'e') {
       gardener->useWeapon(weaponIndex, Direction::EAST);
     } else {
       gardener->useWeapon(weaponIndex, Direction::WEST);
