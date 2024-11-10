@@ -8,8 +8,6 @@
 #include "Game.h"
 
 
-
-
 class AcidPool: public Hazard {
 public:
   AcidPool(): Hazard('@', "You smell something acidic, your lungs start to hurt.") {}

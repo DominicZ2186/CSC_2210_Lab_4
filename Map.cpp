@@ -27,6 +27,7 @@ Map::~Map() {
 
 
 void Map::generateRooms() {
+    srand(time(0));
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
             rooms[x * width + y] = new Room(x * width + y);
@@ -43,13 +44,12 @@ void Map::generateRooms() {
                     rooms[x * width + y - 1]->connect(Direction::EAST, rooms[x * width + y]);
                 }
             }
-            srand(time(0));
             int randNum = rand() % (width * height - 1);
-            if (randNum <= 12 && hazards < MAX_HAZARDS) {
+            if (randNum <= 6 && hazards < MAX_HAZARDS) {
                 placeHazards(x, y);
-            } else if (randNum <= 20 && weapons < MAX_WEAPONS) {
+            } else if (randNum <= 10 && weapons < MAX_WEAPONS) {
                 placeWeapons(x, y);
-            } else if (randNum <= 30 && mutantPlants == 0) {
+            } else if (randNum <= 16 && mutantPlants == 0) {
                 placeMutant(x, y);
             }
         }
