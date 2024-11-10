@@ -20,10 +20,11 @@ Map::Map(int width, int height) {
 }
 
 Map::~Map() {
-    for (auto room : rooms) {
+    for(auto& room : rooms) {
         delete room;
     }
 }
+
 
 void Map::generateRooms() {
     for (int x = 0; x < width; x++) {
