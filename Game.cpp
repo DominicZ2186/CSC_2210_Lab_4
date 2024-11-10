@@ -20,11 +20,13 @@ Game::~Game() {
 void Game::initialize(){
   this->map = new Map(6,6);
   this->gardener = new Gardener(map->getRandomEmptyRoom());
+  gardener->setCurrentRoom(map->getRandomEmptyRoom());
 }
 
 void Game::play(){
   while (gameOver == false) {
     //directions (n, s, e, w), w, m, q, and h
+    displayStatus();
     cout << "Action: (M)ap, (N)orth, (S)outh, (E)ast, (W)est, (U)se Weapon, (H)elp, (Q)uit: " << endl;
     char action;
     cin >> action;
@@ -40,21 +42,22 @@ void Game::processCommand(char command){
   } else if (command == 'q') {
     endGame("Quitting Game");
   } else if(command == 'n') {
-    gardener->move(Direction::NORTH);
+    gardener->move(Direction::NORTH, this);
   } else if(command == 's') {
-    gardener->move(Direction::SOUTH);
+    gardener->move(Direction::SOUTH, this);
   } else if(command == 'e') {
-    gardener->move(Direction::EAST);
+    gardener->move(Direction::EAST, this);
   } else if(command == 'w') {
-    gardener->move(Direction::WEST);
+    gardener->move(Direction::WEST, this);
   } else if(command == 'u'){
     cout << "which weapon would you like to use?" << endl;
-    //gardener->displayInventory();
+    gardener->displayInventory();
     int input;
     do {
       cin >> input;
       if (input != 1 && input != 2) {
-        cout << "Invalid input, please enter the inventory index of the desired weapon to use" << endl;;
+        cout << "Invalid input, please enter the inventory index of the desired weapon to use" << endl;
+        gardener->displayInventory();
       }
     } while (input != 1 && input != 2);
     int weaponIndex = input;
@@ -69,13 +72,13 @@ void Game::processCommand(char command){
       }
     } while(direction != 'n' && direction != 's' && direction != 'e' && direction != 'w');
     if (direction == 'n') {
-      gardener->useWeapon(weaponIndex, Direction::NORTH);
+      gardener->useWeapon(weaponIndex, Direction::NORTH, this);
     } else if (direction == 's') {
-      gardener->useWeapon(weaponIndex, Direction::SOUTH);
+      gardener->useWeapon(weaponIndex, Direction::SOUTH, this);
     } else if (direction == 'e') {
-      gardener->useWeapon(weaponIndex, Direction::EAST);
+      gardener->useWeapon(weaponIndex, Direction::EAST, this);
     } else {
-      gardener->useWeapon(weaponIndex, Direction::WEST);
+      gardener->useWeapon(weaponIndex, Direction::WEST, this);
     }
   }else {
     cout << "Invalid Action" << endl;
@@ -84,8 +87,7 @@ void Game::processCommand(char command){
 }
 
 void Game::displayStatus(){
-  //TODO: need a method to get gardener's current room and then call getClues
-  //gardener-> getCurrentRoom() -> getClues();
+  gardener-> getCurrentRoom() -> getClues();
 }
 
 void Game::displayHelp(){
