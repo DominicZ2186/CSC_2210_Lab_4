@@ -111,7 +111,6 @@ void Game::endGame(string message){
 
 void Game::teleportGardener(){
   Room *room = map->getRandomEmptyRoom();
-  //TODO: need a method to set gardener's current room to the new room
-  //gardener-> setCurrentRoom(room);
+  gardener-> setCurrentRoom(room);
 }
 

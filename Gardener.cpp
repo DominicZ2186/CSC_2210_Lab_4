@@ -12,7 +12,7 @@ using namespace std;
 Gardener::Gardener(Room* startRoom) {
     this->symbol = '+';
     this->currentRoom = nullptr;
-    this->inventory = {new Spray(), new GardenShears()};
+    this->inventory = {new Spray(), nullptr};
     this->sprayCharges = 2;
 }
 
@@ -22,6 +22,9 @@ void Gardener::move(Direction direction, Game* game) {
     currentRoom = currentRoom->getExit(direction);
     if (currentRoom->hasHazard()) {
         currentRoom->getHazard()->interact(game);
+    }
+    else if(currentRoom->hasPlant()) {
+        currentRoom->getPlant()->interact(game);
     }
     currentRoom->setPlayer();
 }

@@ -10,10 +10,7 @@
 using namespace std;
 
 void MutantPlant::interact(Game* game) {
-    game->endGame("Upon entering the next room you immediately spot "
-            "the mutant plant which turned out to be the source of the faint light. \n"
-            "You move to ready a weapon to exterminate this evil, "
-            "but before you can grasp any tools you are restrained by various spiky vines. \n"
-            "You have been caught by the mutant plant, there is no more hope for this garden.");
+    game->endGame("OOPs, You just entered the room with the Mutant Plant. "
+                  "You are eaten by the mutant plant, there is no hope for this\n beautiful garden.\n");
 }
 
