@@ -26,6 +26,9 @@ private:
     int roomID;
 public:
     Room(int roomID);
+
+    ~Room();
+
     void connect(Direction direction, Room* room);
     Room* getExit(Direction direction);
     void setHazard();
@@ -33,6 +36,8 @@ public:
     void setPlant();
     void getClues();
     char getDisplayChar();
+
+    int getRoomId() const;
 };
 
 

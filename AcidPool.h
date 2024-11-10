@@ -12,7 +12,7 @@
 
 class AcidPool: public Hazard {
 public:
-  AcidPool(): Hazard('@', "You smell something acidic") {}
+  AcidPool(): Hazard('@', "You smell something acidic, your lungs start to hurt.") {}
   void interact(Game* game) override;
 
 };

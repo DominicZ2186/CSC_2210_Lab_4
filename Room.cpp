@@ -21,6 +21,13 @@ Room::Room(int roomID){
   this->hasPlayer = false;
 }
 
+//adding destructor here
+Room::~Room() {
+  delete hazard;
+  delete weapon;
+  delete plant;
+}
+
 void Room::connect(Direction direction, Room* room){
   if (direction == Direction::NORTH) {
     this->north = room;
@@ -112,5 +119,15 @@ char Room::getDisplayChar() {
   if (weapon) {
     return weapon->getSymbol();
   }
+  if(hasPlayer) {
+    return '+';
+  }
   return '.';
 }
+
+int Room::getRoomId() const {
+  return roomID;
+}
+
+
+

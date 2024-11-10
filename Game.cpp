@@ -12,6 +12,11 @@ Game::Game(bool debugMode){
   initialize();
 }
 
+Game::~Game() {
+  delete map;
+  delete gardener;
+}
+
 void Game::initialize(){
   this->map = new Map(6,6);
   this->gardener = new Gardener(map->getRandomEmptyRoom());

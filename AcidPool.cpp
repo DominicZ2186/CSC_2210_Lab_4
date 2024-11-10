@@ -6,7 +6,6 @@
 #include "Game.h"
 
 void AcidPool::interact(Game* game) {
-    // Game over logic
     std::cout << "You stepped into an acid pool! Game over!" << std::endl;
     game->endGame("You died in an acid pool.");
 }

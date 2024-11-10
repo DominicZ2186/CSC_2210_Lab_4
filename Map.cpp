@@ -22,6 +22,13 @@ Map::Map(int width, int height) {
     generateRooms();
 }
 
+Map::~Map() {
+    for(auto& room : rooms) {
+        delete room;
+    }
+}
+
+
 void Map::generateRooms() {
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {

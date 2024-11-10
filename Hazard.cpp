@@ -5,6 +5,4 @@
 #include "Hazard.h"
 #include "Game.h"
 
-void Hazard::interact(Game *game) {
 
-}
