@@ -40,18 +40,19 @@ void Room::connect(Direction direction, Room* room){
 }
 
 Room* Room::getExit(Direction direction) {
-  if (direction == Direction::NORTH) {
+  if (direction == Direction::NORTH && north != nullptr) {
     return north;
-  } if (direction == Direction::SOUTH) {
+  } if (direction == Direction::SOUTH && south != nullptr) {
     return south;
-  } if (direction == Direction::EAST) {
+  } if (direction == Direction::EAST && east != nullptr) {
     return east;
+  } if (direction == Direction::WEST && west != nullptr) {
+    return west;
   }
-  return west;
+  return nullptr;
 }
 
 void Room::setHazard() {
-  //TODO: fix seg fault caused by initialization of Hazards, Weapons, and MutantPlant
   int randNum = (rand() % 2) + 1;
   if (randNum == 1) {
     this-> hazard = new Spores();
@@ -61,12 +62,15 @@ void Room::setHazard() {
 }
 
 void Room::setWeapon(bool hasShears) {
-  int randNum = (rand() % 2) + 1;
-  if (randNum == 1 && !hasShears) {
+  if (hasShears) {
     this-> weapon = new GardenShears();
   } else {
     this-> weapon = new Spray();
   }
+}
+
+void Room::removeWeapon() {
+  weapon = nullptr;
 }
 
 void Room::setPlant() {

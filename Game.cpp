@@ -25,9 +25,12 @@ void Game::initialize(){
 
 void Game::play(){
   while (gameOver == false) {
-    //directions (n, s, e, w), w, m, q, and h
     displayStatus();
-    cout << "Action: (M)ap, (N)orth, (S)outh, (E)ast, (W)est, (U)se Weapon, (H)elp, (Q)uit: " << endl;
+    if (debugMode) {
+      cout << "Action: (M)ap, (N)orth, (S)outh, (E)ast, (W)est, (U)se Weapon, (H)elp, (Q)uit: " << endl;
+    } else {
+      cout << "Action: (N)orth, (S)outh, (E)ast, (W)est, (U)se Weapon, (H)elp, (Q)uit: " << endl;
+    }
     char action;
     cin >> action;
     processCommand(tolower(action));
@@ -35,8 +38,12 @@ void Game::play(){
 }
 
 void Game::processCommand(char command){
-  if (command == 'm'){
-    map->display();
+  if (command == 'm') {
+    if (debugMode) {
+      map->display();
+    } else {
+      cout << "Map display is unavailable" << endl;
+    }
   } else if (command == 'h') {
     displayHelp();
   } else if (command == 'q') {
@@ -60,7 +67,7 @@ void Game::processCommand(char command){
         gardener->displayInventory();
       }
     } while (input != 1 && input != 2);
-    int weaponIndex = input;
+    int weaponIndex = input - 1;
     cout << "Item chosen, what direction would you like to use this item in? "
             "((N)orth, (S)outh, (E)ast, (W)est)" << endl;
     char direction;
@@ -111,7 +118,5 @@ void Game::endGame(string message){
 
 void Game::teleportGardener(){
   Room *room = map->getRandomEmptyRoom();
-  //TODO: need a method to set gardener's current room to the new room
-  //gardener-> setCurrentRoom(room);
+  gardener-> setCurrentRoom(room);
 }
-

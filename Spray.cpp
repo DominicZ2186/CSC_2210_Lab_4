@@ -8,7 +8,10 @@
 #include "MutantPlant.h"
 #include "Gardener.h"
 
-bool Spray::use(Direction dir, Game* game) {
+bool Spray::use(Room* targetRoom) {
+    if (targetRoom->hasPlant()) {
+        return true;
+    }
     return false;
 }
 

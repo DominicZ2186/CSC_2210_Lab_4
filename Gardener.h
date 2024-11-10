@@ -10,6 +10,7 @@
 #include <vector>
 
 class Room;
+class Game;
 
 class Gardener {
 private:

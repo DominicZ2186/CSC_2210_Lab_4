@@ -13,7 +13,7 @@ public:
   Spray(): Weapon('>') {
   }
 
-  bool use(Direction dir, Game* game) override;
+  bool use(Room* targetRoom) override;
 };
 
 

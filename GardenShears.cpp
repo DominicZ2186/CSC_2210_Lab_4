@@ -8,7 +8,9 @@
 #include "MutantPlant.h"
 #include "Gardener.h"
 
-bool GardenShears::use(Direction dir, Game* game) {
-    // Unlimited use logic for cutting mutant plant
-    return true;
+bool GardenShears::use(Room* targetRoom) {
+    if (targetRoom->hasPlant()) {
+        return true;
+    }
+    return false;
 }
