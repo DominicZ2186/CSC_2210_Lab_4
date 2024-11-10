@@ -9,5 +9,12 @@
 #include "Gardener.h"
 
 bool Spray::use(Direction dir, Game* game) {
-    return false;
+    if (charges > 0) {
+        charges--;
+        // Logic to spray in the specified direction
+        return true;
+    }
+    return false; // No charges left
+
 }
+

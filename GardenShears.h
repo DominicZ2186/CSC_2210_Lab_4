@@ -11,7 +11,7 @@
 
 class GardenShears: public Weapon {
  public:
-    GardenShears() {}
+    GardenShears() : Weapon('>') {}
     bool use(Direction dir, Game* game) override;
  };
 

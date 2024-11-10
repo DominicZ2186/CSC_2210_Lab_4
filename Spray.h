@@ -12,9 +12,13 @@ class Spray: public Weapon {
  private:
   int charges;
 public:
-  Spray(int initialCharges = 1): charges(initialCharges) {}
+  Spray(int initialCharges): Weapon('>'), charges(initialCharges) {
+  }
+
   bool use(Direction dir, Game* game) override;
-  int getCharges() const {return charges;}
+  int getCharges() const {
+      return charges;
+  }
 
 };
 

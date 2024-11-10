@@ -4,12 +4,9 @@
 
 #include "AcidPool.h"
 #include "Game.h"
-#include <iostream>
-
-using namespace std;
 
 void AcidPool::interact(Game* game) {
-    game->endGame("As you enter this room, you are hit with a sharp burning "
-            "pain that instantly engulfs your body. \n"
-            "You had stepped into an acid pool and disintegrated.");
+    // Game over logic
+    std::cout << "You stepped into an acid pool! Game over!" << std::endl;
+    game->endGame("You died in an acid pool.");
 }
