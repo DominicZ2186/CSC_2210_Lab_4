@@ -11,6 +11,6 @@ using namespace std;
 
 void MutantPlant::interact(Game* game) {
     game->endGame("OOPs, You just entered the room with the Mutant Plant. "
-                  "You are eaten by the mutant plant, there is no hope for this\n beautiful garden.\n");
+                  "You are eaten by the mutant plant, there is no hope for this\nbeautiful garden.\n");
 }
 

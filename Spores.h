@@ -7,7 +7,6 @@
 #include "Hazard.h"
 
 
-
 class Spores: public Hazard {
 public:
   Spores(): Hazard('!', "You notice Sparkling spores drift in the air") {}

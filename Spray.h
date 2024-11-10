@@ -6,8 +6,6 @@
 #define SPRAY_H
 #include "Weapon.h"
 
-
-
 class Spray: public Weapon {
 public:
   Spray(): Weapon('>') {

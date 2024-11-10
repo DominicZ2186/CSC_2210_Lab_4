@@ -7,6 +7,7 @@
 #define WEAPON_H
 
 #include "Direction.h"
+#include <string>
 class Room;
 
 class Weapon {

@@ -15,7 +15,7 @@ private:
   std::vector<Room*> rooms;
   int width, height;
   Room* getRoomAt(int x, int y) const;
-  int const MAX_HAZARDS = 12;
+  int const MAX_HAZARDS = 6;
   int const MAX_WEAPONS = 2;
   int mutantPlants;
   int hazards;

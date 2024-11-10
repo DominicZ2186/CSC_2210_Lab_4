@@ -4,10 +4,7 @@
 
 #ifndef GARDENSHEARS_H
 #define GARDENSHEARS_H
-#include "Direction.h"
 #include "Weapon.h"
-
-
 
 class GardenShears: public Weapon {
  public:
