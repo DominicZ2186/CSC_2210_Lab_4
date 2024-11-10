@@ -7,7 +7,7 @@ using namespace std;
 
 
 int main() {
-    Game* game = new Game(true);
+    Game* game = new Game(false);
     game->play();
     delete game;
     return 0;
