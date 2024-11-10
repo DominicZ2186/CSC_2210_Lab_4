@@ -26,6 +26,8 @@ public:
     void displayInventory();
     void setCurrentRoom(Room* room);
     Room *getCurrentRoom() const;
+
+    Weapon *getWeaponAt(int index);
 };
 
 
