@@ -16,9 +16,6 @@ Map::Map(int width, int height) {
     this ->hazards = 0;
     this -> weapons = 0;
     rooms.resize(width * height);
-    for(auto& room : rooms) {
-        room = nullptr;
-    }
     generateRooms();
 }
 
