@@ -21,6 +21,7 @@ public:
     void move(Direction direction);
     void useWeapon(size_t weaponIndex, Direction direction);
     void pickUpWeapon(Weapon*);
+    void displayInverntory() const;
 };
 
 
