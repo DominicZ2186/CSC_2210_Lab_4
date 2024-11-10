@@ -31,6 +31,9 @@ public:
     Room* getExit(Direction direction);
     void setHazard();
     void setWeapon(bool hasShears);
+
+    void removeWeapon();
+
     void setPlant();
     void getClues();
     char getDisplayChar();

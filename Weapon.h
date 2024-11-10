@@ -7,7 +7,7 @@
 #define WEAPON_H
 
 #include "Direction.h"
-class Game;
+class Room;
 
 class Weapon {
 protected:
@@ -18,7 +18,7 @@ public:
   Weapon(char sym) : symbol(sym), isCollected(false) {}
   virtual ~Weapon() = default;
 
-  virtual bool use(Direction dir, Game* game) = 0;
+  virtual bool use(Room* targetRoom) = 0;
   char getSymbol() const {
     return symbol;
   }

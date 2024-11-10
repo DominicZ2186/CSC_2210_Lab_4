@@ -8,6 +8,9 @@
 #include "Weapon.h"
 #include <string>
 
+class Game;
+class Weapon;
+
 class MutantPlant {
 private:
   bool isAlive;

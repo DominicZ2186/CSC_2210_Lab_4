@@ -22,9 +22,7 @@ private:
   bool debugMode;
 public:
   Game(bool debugMode);
-
   ~Game();
-
   void initialize();
   void play();
   void processCommand(char command);

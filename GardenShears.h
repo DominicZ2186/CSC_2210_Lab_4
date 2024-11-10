@@ -12,7 +12,7 @@
 class GardenShears: public Weapon {
  public:
     GardenShears() : Weapon('>') {}
-    bool use(Direction dir, Game* game) override;
+    bool use(Room* targetRoom) override;
  };
 #endif //GARDENSHEARS_H
 
