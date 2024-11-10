@@ -16,12 +16,14 @@ private:
     Room* currentRoom;
     std::vector<Weapon*> inventory;
     char symbol;
+    int sprayCharges;
 public:
     Gardener(Room* startRoom);
     void move(Direction direction);
-    void useWeapon(size_t weaponIndex, Direction direction);
+    void useWeapon(size_t weaponIndex, Direction direction, Game *game);
     void pickUpWeapon(Weapon*);
-    void displayInverntory() const;
+    void displayInventory();
+    void setCurrentRoom(Room* room);
 };
 
 

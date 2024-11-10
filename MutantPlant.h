@@ -14,7 +14,7 @@ private:
   char symbol;
   std::string clue;
  public:
-    MutantPlant() : isAlive(true), symbol('?'),
+    MutantPlant() : isAlive(true), symbol('M'),
          clue("You see a faint light/glow") {}
 
     void interact(Game* game);

@@ -10,18 +10,20 @@
 using namespace std;
 
 Gardener::Gardener(Room* startRoom) {
+    this->symbol = '+';
     this->currentRoom = nullptr;
-    this->inventory = {nullptr, nullptr};
+    this->inventory = {new Spray(), new GardenShears()};
+    this->sprayCharges = 2;
 }
 
 void Gardener::move(Direction direction) {
     //have the logic to move the gardener based on direction.
-
+    currentRoom = currentRoom->getExit(direction);
 }
 
-void Gardener::useWeapon(size_t index, Direction dir) {
+void Gardener::useWeapon(size_t index, Direction dir, Game *game) {
     if (index < inventory.size() && inventory[index] != nullptr) {
-        inventory[index]->use(dir, nullptr);  //pass the game instance
+        inventory[index]->use(dir, game);  //pass the game instance
     } else {
         std::cout << "Invalid weapon selection!\n";
     }
@@ -31,28 +33,30 @@ void Gardener::useWeapon(size_t index, Direction dir) {
 
 void Gardener::pickUpWeapon(Weapon *weapon) {
     if (weapon != nullptr) {
-        inventory.push_back(weapon);
         weapon->pickUp();
         std::cout << "Picked up a " << (dynamic_cast<Spray*>(weapon) ? "Spray" : "Garden Shears") << "!\n";
+        if (dynamic_cast<Spray*>(weapon)) {
+            sprayCharges++;
+        } else {
+            inventory[1] = new GardenShears();
+        }
     }
 }
 
-void Gardener::displayInverntory() const {
+void Gardener::displayInventory() {
     std::cout << "Inventory:\n";
-    if (inventory.empty()) {
-        std::cout << "  (Empty)\n";
-    } else {
-        for (size_t i = 0; i < inventory.size(); ++i) {
-            std::cout << "  " << i + 1 << ". ";
+    for (int i = 0; i < inventory.size(); i++) {
+        if (inventory[i] != nullptr) {
             if (dynamic_cast<Spray*>(inventory[i])) {
-                Spray* spray = dynamic_cast<Spray*>(inventory[i]);
-                std::cout << "Spray (Charges: " << spray->getCharges() << ")\n";
-            } else if (dynamic_cast<GardenShears*>(inventory[i])) {
-                std::cout << "Garden Shears (Unlimited uses)\n";
-            } else {
-                std::cout << "Unknown Weapon\n";
+                std::cout << "Sprays (uses left: " << sprayCharges << ")\n";
+            }
+            if (dynamic_cast<GardenShears*>(inventory[i])) {
+                std::cout << "Garden Shears (unlimited uses)\n";
             }
         }
     }
 }
 
+void Gardener::setCurrentRoom(Room *room) {
+    this->currentRoom = room;
+}
